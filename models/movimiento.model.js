@@ -7,9 +7,9 @@ var movimientoSchema = new mongoose.Schema({
     cantidad: Number,
     nAlbaran: String,
     tipo: {
-        type: String,
-        enum: ['ENTRADA', 'SALIDA'],
-        default: 'ENTRADA'
+        type: Number,
+        enum: [0, 1],
+        default: 0
     }
 });
 
