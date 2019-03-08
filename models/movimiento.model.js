@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
 var movimientoSchema = new mongoose.Schema({
-    fecha: Date,
+    fecha: Number,
     articulo: { type: Schema.Types.ObjectId, ref: 'Articulos', required: true},
     cantidad: Number,
     nAlbaran: String,
