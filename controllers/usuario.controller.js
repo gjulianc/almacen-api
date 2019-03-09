@@ -28,7 +28,7 @@ exports.getUsuario = function(req, res) {
 exports.crearUsuario = function(req, res) {
     
     var nuevoUsuario = new Usuario(req.body);
-    var salt = bcryptNodejs.genSaltSync(10);
+    var salt = bcrypt.genSaltSync(10);
     nuevoUsuario.password = bcrypt.hashSync(nuevoUsuario.password, salt);
 
     nuevoUsuario.save( (err, usuariodb) => {
