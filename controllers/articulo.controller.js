@@ -34,7 +34,9 @@ exports.busqueda = function(req, res) {
     var busqueda = req.params.busqueda;
     var regex = new RegExp(busqueda, 'i');
 
-    Articulo.find( {referencia: regex}, (err, articulos) => {
+    Articulo.find()
+        .populate(familia)
+        .exec( {referencia: regex}, (err, articulos) => {
         if (err) {
             res.status(400).json(err);
         }
