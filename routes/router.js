@@ -30,6 +30,7 @@ router.get      ( '/articulos/:id', articuloCtrl.getArticulo       );  // Devuel
 router.post     ( '/articulos', articuloCtrl.crearArticulo         );  // Crea un nuevo articulo
 router.put      ( '/articulos/:id', articuloCtrl.actualizaArticulo );  // Actualiza el articulo
 router.delete   ( '/articulos/:id', articuloCtrl.eliminaArticulo   );  // Elimina el articulo
+router.get      ( '/articulos/:busqueda', articuloCtrl.busqueda    );  // Busqueda de referencias
 
 // Movimientos
 router.get      ( '/movimientos', movimientoCtrl.getMovimientos          );  //Devuelve todos los movimientos

@@ -29,6 +29,20 @@ exports.getArticulo = function(req, res) {
     });
 };
 
+exports.busqueda = function(req, res) {
+
+    var busqueda = req.params.busqueda;
+    var regex = new RegExp(busqueda, 'i');
+
+    Articulo.find( {referencia: regex}, (err, articulos) => {
+        if (err) {
+            res.status(400).json(err);
+        }
+
+        res.json(articulos);
+    });
+}
+
 exports.crearArticulo = function(req, res) {
     var nuevoArticulo = new Articulo(req.body);
     nuevoArticulo.save( (err, articulodb) => {
