@@ -24,13 +24,13 @@ router.put      ( '/familias/:id', familiaCtrl.actualizaFamilia );  // Actualiza
 router.delete   ( '/familias/:id', familiaCtrl.eliminaFamilia   );  // Elimina el Familia
 
 
-// Articulos
-router.get      ( '/articulos', articuloCtrl.getArticulos          );  //Devuelve todos los articulos
-router.get      ( '/articulos/:id', articuloCtrl.getArticulo       );  // Devuelve el articulo con el id.
-router.post     ( '/articulos', articuloCtrl.crearArticulo         );  // Crea un nuevo articulo
-router.put      ( '/articulos/:id', articuloCtrl.actualizaArticulo );  // Actualiza el articulo
-router.delete   ( '/articulos/:id', articuloCtrl.eliminaArticulo   );  // Elimina el articulo
-router.get      ( '/articulos/:busqueda', articuloCtrl.busqueda    );  // Busqueda de referencias
+// Articulo
+router.get      ( '/articulos', articuloCtrl.getArticulos                   );  //Devuelve todos los articulos
+router.get      ( '/articulos/:id', articuloCtrl.getArticulo                );  // Devuelve el articulo con el id.
+router.post     ( '/articulos', articuloCtrl.crearArticulo                  );  // Crea un nuevo articulo
+router.put      ( '/articulos/:id', articuloCtrl.actualizaArticulo          );  // Actualiza el articulo
+router.delete   ( '/articulos/:id', articuloCtrl.eliminaArticulo            );  // Elimina el articulo
+router.get      ( '/articulos/busqueda/:busqueda', articuloCtrl.busqueda    );  // Busqueda de referencias
 
 // Movimientos
 router.get      ( '/movimientos', movimientoCtrl.getMovimientos          );  //Devuelve todos los movimientos
