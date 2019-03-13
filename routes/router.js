@@ -1,9 +1,11 @@
 
-var express         = require('express');
-var usuarioCtrl     = require('../controllers/usuario.controller');
-var articuloCtrl    = require('../controllers/articulo.controller');
-var familiaCtrl     = require('../controllers/familia.controller');
-var movimientoCtrl  = require('../controllers/movimiento.controller');
+var express         = require( 'express'                             );
+var usuarioCtrl     = require( '../controllers/usuario.controller'   );
+var articuloCtrl    = require( '../controllers/articulo.controller'  );
+var familiaCtrl     = require( '../controllers/familia.controller'   );
+var movimientoCtrl  = require( '../controllers/movimiento.controller');
+var imageCtrl       = require( '../controllers/image.controller'     );
+var uploadCtrl      = require( '../controllers/upload.controller'    );
 
 router = express.Router();
 
@@ -38,5 +40,10 @@ router.get      ( '/movimientos/:id', movimientoCtrl.getMovimiento       );  // 
 router.post     ( '/movimientos', movimientoCtrl.crearMovimiento         );  // Crea un nuevo movimiento
 router.put      ( '/movimientos/:id', movimientoCtrl.actualizaMovimiento );  // Actualiza el movimiento
 router.delete   ( '/movimientos/:id', movimientoCtrl.eliminaMovimiento   );  // Elimina el movimiento
+
+
+// Imagenes
+router.get      ( '/img/:img', imageCtrl.getImages       ); // Obtiene la imagen del articulo
+router.put      ( '/upload/:id', uploadCtrl.uploadFile   ); // Sube un fichero
 
 module.exports  = router;

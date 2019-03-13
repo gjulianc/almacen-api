@@ -9,6 +9,7 @@ var articuloSchema = new mongoose.Schema({
     stockMinimo: { type: Number, min: 0 },
     stockMaximo: Number,
     descripcion: String,
+    img: String,
     familia: {type: Schema.Types.ObjectId, ref: 'Familias', required: true}
 });
 
