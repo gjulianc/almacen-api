@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(require('./routes/router'));
+app.use(fileUpload());
 
 app.listen(port, function (err) {
     console.log('listening on port: ' + port);

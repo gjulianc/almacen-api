@@ -1,10 +1,9 @@
-const fileUpload = require('express-fileupload');
-var usuarioCtrl = require('../controllers/usuario.controller');
+var fileUpload = require('express-fileupload');
 var articuloCtrl = require('../controllers/articulo.controller');
 var fs = require('fs');
 
 // default options
-app.use(fileUpload());
+
 
 exports.uploadFile = function (req, res) {
 
