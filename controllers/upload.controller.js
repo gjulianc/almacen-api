@@ -61,7 +61,7 @@ function subirPorTipo(id, nombreArchivo, res) {
     articuloCtrl.getArticulo(id, articuloDB)
         .then(articuloDB => {
 
-            var pathViejo = './uploads/' + articulo.img;
+            var pathViejo = './uploads/' + articuloDB.img;
 
             if (fs.existsSync(pathViejo)) {
 
