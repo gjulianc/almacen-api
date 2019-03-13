@@ -50,7 +50,7 @@ exports.uploadFile = function (req, res) {
             });
         }
 
-        subirPorTipo(tipo, id, nombreArchivo, res);
+        subirPorTipo( id, nombreArchivo, res);
     });
 };
 
