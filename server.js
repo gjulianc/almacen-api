@@ -6,7 +6,8 @@ http                = require('http'),
 express             = require('express'),
 bodyParser          = require('body-parser'),
 mongoose            = require('mongoose'),
-config              = require('dotenv').config();
+config              = require('dotenv').config(),
+fileUpload = require('express-fileupload');
 
 var app = express();
 var port = process.env.PORT || 3001;
