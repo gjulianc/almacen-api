@@ -4,8 +4,6 @@ var usuarioCtrl     = require( '../controllers/usuario.controller'   );
 var articuloCtrl    = require( '../controllers/articulo.controller'  );
 var familiaCtrl     = require( '../controllers/familia.controller'   );
 var movimientoCtrl  = require( '../controllers/movimiento.controller');
-var imageCtrl       = require( '../controllers/image.controller'     );
-var uploadCtrl      = require( '../controllers/upload.controller'    );
 
 router = express.Router();
 
@@ -27,12 +25,14 @@ router.delete   ( '/familias/:id', familiaCtrl.eliminaFamilia   );  // Elimina e
 
 
 // Articulo
-router.get      ( '/articulos', articuloCtrl.getArticulos                   );  //Devuelve todos los articulos
-router.get      ( '/articulos/:id', articuloCtrl.getArticulo                );  // Devuelve el articulo con el id.
-router.post     ( '/articulos', articuloCtrl.crearArticulo                  );  // Crea un nuevo articulo
-router.put      ( '/articulos/:id', articuloCtrl.actualizaArticulo          );  // Actualiza el articulo
-router.delete   ( '/articulos/:id', articuloCtrl.eliminaArticulo            );  // Elimina el articulo
-router.get      ( '/articulos/busqueda/:busqueda', articuloCtrl.busqueda    );  // Busqueda de referencias
+router.put      ( '/articulos/:id/:tipo/:unidades', articuloCtrl.actualizarUnidades   );  // Actualiza las uniddes Entrada o Salida
+router.get      ( '/articulos', articuloCtrl.getArticulos                             );  //Devuelve todos los articulos
+router.get      ( '/articulos/:id', articuloCtrl.getArticulo                          );  // Devuelve el articulo con el id.
+router.post     ( '/articulos', articuloCtrl.crearArticulo                            );  // Crea un nuevo articulo
+router.put      ( '/articulos/:id', articuloCtrl.actualizaArticulo                    );  // Actualiza el articulo
+router.delete   ( '/articulos/:id', articuloCtrl.eliminaArticulo                      );  // Elimina el articulo
+router.get      ( '/articulos/busqueda/:busqueda', articuloCtrl.busqueda              );  // Busqueda de referencias
+
 
 // Movimientos
 router.get      ( '/movimientos', movimientoCtrl.getMovimientos          );  //Devuelve todos los movimientos
@@ -41,9 +41,5 @@ router.post     ( '/movimientos', movimientoCtrl.crearMovimiento         );  // 
 router.put      ( '/movimientos/:id', movimientoCtrl.actualizaMovimiento );  // Actualiza el movimiento
 router.delete   ( '/movimientos/:id', movimientoCtrl.eliminaMovimiento   );  // Elimina el movimiento
 
-
-// Imagenes
-router.get      ( '/img/:img', imageCtrl.getImages       ); // Obtiene la imagen del articulo
-router.put      ( '/upload/:id', uploadCtrl.uploadFile   ); // Sube un fichero
 
 module.exports  = router;

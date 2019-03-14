@@ -1,8 +1,7 @@
 
 
-
-
-var Movimiento = require('../models/movimiento.model');
+var articuloCtrl = require ( '../controllers/articulo.controller' );
+var Movimiento   = require ( '../models/movimiento.model'         );
 
 exports.getMovimientos = function(req, res) {
     
@@ -12,7 +11,7 @@ exports.getMovimientos = function(req, res) {
         if (err) {
             res.status(400).json(err);
         }
-
+    
         res.json(movimientos);
     });
 };
@@ -60,9 +59,8 @@ exports.eliminaMovimiento = function(req, res) {
         if (err) {
             res.status(400).json(err);
         }
-
+        
         res.json(movimiento);
     });
 };
-
 

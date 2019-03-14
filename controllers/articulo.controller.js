@@ -52,7 +52,7 @@ exports.crearArticulo = function(req, res) {
         if (err) {
             res.status(400).json(err);
         }
-
+        
         res.json(articulodb);
     });
 };
@@ -81,4 +81,36 @@ exports.eliminaArticulo = function(req, res) {
     });
 };
 
+exports.actualizarUnidades = function ( req, res ) {
+
+    var tipo     =  req.params.tipo;
+    var unidades =  req.params.unidades;
+
+    switch( tipo ) {
+        case '0': 
+            res.json ( {
+                    ok: true,
+                    mensaje: 'Han entrado: ' + unidades + ' unidades'
+                   });
+            
+            break;
+
+        case '1': 
+            res.json ( {
+                ok: true,
+                mensaje: 'Han salido: ' + unidades + ' unidades'
+                    });
+    
+            break;
+
+        default: 
+            res.status(400).json({
+                ok: false,
+                mensaje: 'No es un tipo valido'
+                });
+
+            break;
+    }
+
+};
 

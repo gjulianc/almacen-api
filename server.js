@@ -7,17 +7,16 @@ express             = require('express'),
 bodyParser          = require('body-parser'),
 mongoose            = require('mongoose'),
 config              = require('dotenv').config(),
-fileUpload = require('express-fileupload');
+morgan              = require('morgan');
 
 var app = express();
 var port = process.env.PORT || 3001;
 
-
+app.use(morgan('combined'));
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(require('./routes/router'));
-app.use(fileUpload());
 
 app.listen(port, function (err) {
     console.log('listening on port: ' + port);
