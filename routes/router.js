@@ -25,7 +25,7 @@ router.delete   ( '/familias/:id', familiaCtrl.eliminaFamilia   );  // Elimina e
 
 
 // Articulo
-router.put      ( '/articulos/:id/:tipo/:unidades', articuloCtrl.actualizarUnidades   );  // Actualiza las uniddes Entrada o Salida
+router.get      ( '/articulos/:id/:tipo/:unidades', articuloCtrl.actualizarUnidades   );  // Actualiza las uniddes Entrada o Salida
 router.get      ( '/articulos', articuloCtrl.getArticulos                             );  //Devuelve todos los articulos
 router.get      ( '/articulos/:id', articuloCtrl.getArticulo                          );  // Devuelve el articulo con el id.
 router.post     ( '/articulos', articuloCtrl.crearArticulo                            );  // Crea un nuevo articulo

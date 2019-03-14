@@ -83,34 +83,34 @@ exports.eliminaArticulo = function(req, res) {
 
 exports.actualizarUnidades = function ( req, res ) {
 
-    var tipo     =  req.params.tipo;
-    var unidades =  req.params.unidades;
+    var id       =  req.params.id;
+    var tipo     =  Number(req.params.tipo);
+    var unidades =  Number(req.params.unidades);
 
-    switch( tipo ) {
-        case '0': 
-            res.json ( {
-                    ok: true,
-                    mensaje: 'Han entrado: ' + unidades + ' unidades'
-                   });
+
+    Articulo.findById({_id: id}, (err, articulo) => {
+       
+        if (err) {
+            res.status(400).json(err);
+        }
+        switch ( tipo ) {
+            case 0: 
+                    articulo.stockActual += unidades;
+                    articulo.save();
+                    res.json(articulo);
+                    break;
+            case 1: 
+                    articulo.stockActual -= unidades;
+                    articulo.save();
+                    res.json(articulo);
+                    break;
             
-            break;
-
-        case '1': 
-            res.json ( {
-                ok: true,
-                mensaje: 'Han salido: ' + unidades + ' unidades'
-                    });
-    
-            break;
-
-        default: 
-            res.status(400).json({
-                ok: false,
-                mensaje: 'No es un tipo valido'
-                });
-
-            break;
-    }
+            default: 
+                    res.status(400).json('Tipo no válido');
+                    break;
+        }
+        
+    });
 
 };
 
